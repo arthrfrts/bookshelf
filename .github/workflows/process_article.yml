@@ -1,0 +1,35 @@
+name: Process Article
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  process-article:
+    runs-on: ubuntu-latest
+    if: contains(github.event.issue.body, 'http')
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: |
+          npm install @octokit/core octokit-plugin-create-pull-request slugify
+          npm install -g @postlight/parser
+
+      - name: Process article
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node --experimental-modules .github/scripts/process_article.mjs
