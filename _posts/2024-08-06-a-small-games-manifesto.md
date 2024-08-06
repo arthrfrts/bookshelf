@@ -1,6 +1,7 @@
 ---
+layout: post
 title: "A small games manifesto"
-author: 
+author: null
 date: 2024-08-05
 canonical_url: https://www.2weeks.games/fun-club/a-small-games-manifesto/?ref=2weeks-fun-club-newsletter
 ---

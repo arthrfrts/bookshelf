@@ -34,6 +34,7 @@ function parseArticle(url) {
     const content = result.content || "";
 
     const frontMatter = `---
+layout: post
 title: "${title}"
 author: ${author}
 date: ${date}
