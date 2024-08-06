@@ -27,7 +27,7 @@ function parseArticle(url) {
     const result = JSON.parse(execSync(`postlight-parser "${url}" --format=markdown`, { encoding: 'utf8' }));
 
     const title = result.title || "";
-    const author = result.author || "";
+    const author = result.author || null;
     const date = result.date_published
       ? new Date(result.date_published).toISOString().split('T')[0]
       : new Date().toISOString().split('T')[0];
@@ -74,9 +74,9 @@ async function main() {
 
   const { content: markdownContent, title } = articleData;
   const filename = createFilename(title);
-  const filepath = `_reading-list/${filename}`;
+  const filepath = `_posts/${filename}`;
 
-  const branchName = `article/${filename.replace('.md', '')}`;
+  const branchName = `new-post/${filename.replace('.md', '')}`;
 
   try {
     const { data: refData } = await octokit.request('GET /repos/{owner}/{repo}/git/ref/{ref}', {
