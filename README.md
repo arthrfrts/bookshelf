@@ -6,7 +6,7 @@ To add an article, simply open an issue into your repo with an URL in the issue 
 
 ## To-do
 
-- [] Archiving
-- [] Tags
+- [ ] Archiving
+- [ ] Tags
 
 [1]: https://github.com/postlight/parser
