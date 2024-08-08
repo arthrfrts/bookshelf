@@ -1,0 +1,31 @@
+---
+layout: default
+---
+
+<div class="posts-feed h-feed">
+  {% for post in site.posts %}
+    <article class="entry h-entry">
+      <header class="entry-header">
+        <span class="entry-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{- post.date | date: "%d/%m/%Y" -}}</time>
+        </span>
+
+        <h2 class="entry-title">
+          <a href="{{ post.url | absolute_url }}">
+            {{ post.title }}
+          </a>
+        </h2>
+
+        <div class="entry-meta">
+          {% if post.author and post.author != "" %}
+            <span class="author">Por {{ post.author }}</span>
+          {% endif %}
+
+          <a class="post-permalink" href="{{ post.canonical_url }}" rel="bookmark">
+            {{- post.canonical_url | split: "//" | last | split: "/" | first -}}
+          </a>
+        </div>
+      </header>
+    </article>
+  {% endfor %}
+</div>
