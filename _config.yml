@@ -1,7 +1,7 @@
 # Site settings
 title: Shelf
 description: >-
-  A lista de leituras do Arthur.
+  Minha lista de leitura.
 baseurl: "/shelf"
 url: "https://arthr.me"
 

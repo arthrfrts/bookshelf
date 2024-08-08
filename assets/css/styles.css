@@ -1,23 +1,66 @@
 :root {
   --base-font-family: "Work Sans", sans-serif;
   --base-font-size: clamp(1.8rem, 2vw, 1.9rem);
-  --bg-color: #fff;
-  --fg-color: #111;
+  --bg-color: 255, 255, 255;
+  --fg-color: 17, 17, 17;
 }
 
-@media (prefers-color-sheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: #111;
-    --fg-color: #fff;
+    --bg-color: 17, 17, 17;
+    --fg-color: 255, 255, 255;
   }
 }
 
 body {
-  background-color: var(--bg-color);
-  color: var(--fg-color);
+  background-color: rgba(var(--bg-color), 1);
+  color: rgba(var(--fg-color), 1);
   font-family: var(--base-font-family);
   font-size: var(--base-font-size);
-  -webkit-font-smoothing: antialiased;
-  font-feature-settings: "kern" 1;
+  font-feature-settings:
+    "kern" 1;
   font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  max-width: 83rem;
+  flex-flow: column nowrap;
+  gap: var(--base-font-size);
+  margin: calc(var(--base-font-size) * 2) auto;
+  padding-left: clamp(1rem, 2vh, 2rem);
+  padding-right: clamp(1rem, 2vh, 2rem);
+  transition-property: background-color, color;
+  transition-timing-function: ease;
+  transition-duration: 200ms;
+}
+
+a {
+  color: currentColor;
+  text-decoration-color: rgba(var(--fg-color), 0.75);
+  transition: text-decoration-color 250ms ease;
+}
+
+a:hover,
+a:focus {
+  text-decoration-color: rgba(var(--fg-color), 0.25);
+}
+
+.site-header {
+  border-bottom: 1px dashed rgba(var(--fg-color), 0.25);
+  padding-bottom: var(--base-font-size);
+}
+
+.site-title {
+  font-size: 1.25em;
+  text-transform: lowercase;
+}
+
+.site-footer {
+  color: rgba(var(--fg-color), 0.5);
+  border-top: 1px dashed rgba(var(--fg-color), 0.25);
+  padding-top: var(--base-font-size);
+  font-size: 1.2rem;
+  line-height: 1.2em;
+  display: flex;
+  flex-flow: column nowrap;
+  font-weight: 500;
 }
