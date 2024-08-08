@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang }}">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% if page.title and page.title != "" %}
+      <title>{{ page.title }}</title>
+    {% else %}
+      <title>{{ site.title }}</title>
+    {% endif %}
+    <meta name="description" content="{{ page.excerpt |  strip_html |  strip_newlines | truncate: 160 | default: site.description }}" />
+
+    <link rel="stylesheet" href="{% link /assets/css/fonts.css %}" />
+    <link rel="stylesheet" href="{% link /assets/css/reset.css %}" />
+    <link rel="stylesheet" href="{% link /assets/css/styles.css %}" />
+
+    {% feed_meta %}
+  </head>
+  <body>
+    {%  include header.html %}
+
+    <main class="site-content">
+      {{ content }}
+    </main>
+
+    {% include footer.html %}
+  </body>
+</html>

@@ -1,0 +1,11 @@
+<header class="site_header">
+  {%- if page.title and page.title != "" -%}
+    <span class="site_title">
+      <a href="{{ '/' | absolute_url }}">{{ site.title }}</a>
+    </span>
+  {%- else -%}
+    <h1 class="site_title">
+      <a href="{{ '/' | absolute_url }}">{{ site.title }}</a>
+    </h1>
+  {%- endif -%}
+</header>
